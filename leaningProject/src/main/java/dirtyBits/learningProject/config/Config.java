@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import dirtyBits.learningProject.controller.RestExceptionHandler;
 import dirtyBits.learningProject.controller.UserController;
 import dirtyBits.learningProject.repository.UserRepository;
 import dirtyBits.learningProject.service.UserService;
@@ -25,5 +26,10 @@ public class Config {
 	@Bean
 	public UserController userController() {
 		return new UserController(userService());
+	}
+	
+	@Bean
+	public RestExceptionHandler restExceptionHandler () {
+		return new RestExceptionHandler();
 	}
 }
