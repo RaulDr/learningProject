@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.config;
+package com.learningProject.config;
 
 import java.util.Properties;
 
@@ -22,8 +22,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "dirtyBits.learningProject.repository")
-@EntityScan(basePackages = {"dirtyBits.learningProject.model"})
+@EnableJpaRepositories(basePackages = "com.learningProject.repository")
+@EntityScan(basePackages = {"com.learningProject.model"})
 public class JpaConfig {
 
  @Autowired
@@ -38,7 +38,7 @@ public class JpaConfig {
 
  LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
  em.setDataSource(dataSource());
- em.setPackagesToScan("dirtyBits.learningProject.model");
+ em.setPackagesToScan("com.learningProject.model");
  em.setJpaVendorAdapter(vendorAdapter);
  em.setJpaProperties(additionalProperties());
 

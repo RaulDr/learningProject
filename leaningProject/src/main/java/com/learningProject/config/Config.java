@@ -1,15 +1,15 @@
-package dirtyBits.learningProject.config;
+package com.learningProject.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import dirtyBits.learningProject.controller.RestExceptionHandler;
-import dirtyBits.learningProject.controller.UserController;
-import dirtyBits.learningProject.repository.UserRepository;
-import dirtyBits.learningProject.service.UserService;
-import dirtyBits.learningProject.service.UserServiceImpl;
+import com.learningProject.controller.RestExceptionHandler;
+import com.learningProject.controller.UserController;
+import com.learningProject.repository.UserRepository;
+import com.learningProject.service.UserService;
+import com.learningProject.service.UserServiceImpl;
 
 @Configuration
 @Import({JpaConfig.class})

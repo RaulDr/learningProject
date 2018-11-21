@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.model;
+package com.learningProject.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package dirtyBits.leaningProject;
+package com.leaningProject;
 
 import org.junit.Test;
 

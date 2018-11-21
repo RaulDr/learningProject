@@ -1,4 +1,4 @@
-package dirtyBits.leaningProject;
+package com.leaningProject;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.Mockito.doNothing;
@@ -27,12 +27,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learningProject.config.Config;
+import com.learningProject.service.UserService;
+import com.learningProject.view.ErrorView;
+import com.learningProject.view.UserRegisterView;
+import com.learningProject.view.UserView;
 
-import dirtyBits.learningProject.config.Config;
-import dirtyBits.learningProject.service.UserService;
-import dirtyBits.learningProject.view.ErrorView;
-import dirtyBits.learningProject.view.UserRegisterView;
-import dirtyBits.learningProject.view.UserView;
 import javassist.NotFoundException;
 
 @RunWith(SpringRunner.class)

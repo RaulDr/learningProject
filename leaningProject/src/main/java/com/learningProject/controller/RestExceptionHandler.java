@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.controller;
+package com.learningProject.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import dirtyBits.learningProject.view.ErrorView;
+import com.learningProject.view.ErrorView;
+
 import javassist.NotFoundException;
 
 @ControllerAdvice

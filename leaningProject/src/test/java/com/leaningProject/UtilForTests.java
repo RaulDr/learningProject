@@ -1,11 +1,11 @@
-package dirtyBits.leaningProject;
+package com.leaningProject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import dirtyBits.learningProject.model.User;
-import dirtyBits.learningProject.view.UserView;
-import dirtyBits.learningProject.view.UserViewList;
+import com.learningProject.model.User;
+import com.learningProject.view.UserView;
+import com.learningProject.view.UserViewList;
 
 public class UtilForTests {
 	

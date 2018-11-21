@@ -1,4 +1,4 @@
-package dirtyBits.leaningProject;
+package com.leaningProject;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,12 +12,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import dirtyBits.learningProject.model.User;
-import dirtyBits.learningProject.repository.UserRepository;
-import dirtyBits.learningProject.service.UserServiceImpl;
-import dirtyBits.learningProject.view.UserRegisterView;
-import dirtyBits.learningProject.view.UserView;
-import dirtyBits.learningProject.view.UserViewList;
+import com.learningProject.model.User;
+import com.learningProject.repository.UserRepository;
+import com.learningProject.service.UserServiceImpl;
+import com.learningProject.view.UserRegisterView;
+import com.learningProject.view.UserView;
+import com.learningProject.view.UserViewList;
+
 import javassist.NotFoundException;
 
 @RunWith(MockitoJUnitRunner.class)

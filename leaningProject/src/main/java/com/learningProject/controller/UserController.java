@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.controller;
+package com.learningProject.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import dirtyBits.learningProject.service.UserService;
-import dirtyBits.learningProject.view.SimpleSuccesResponseView;
-import dirtyBits.learningProject.view.UserRegisterView;
-import dirtyBits.learningProject.view.UserView;
-import dirtyBits.learningProject.view.UserViewList;
+import com.learningProject.service.UserService;
+import com.learningProject.view.SimpleSuccesResponseView;
+import com.learningProject.view.UserRegisterView;
+import com.learningProject.view.UserView;
+import com.learningProject.view.UserViewList;
+
 import javassist.NotFoundException;
 
 @RestController

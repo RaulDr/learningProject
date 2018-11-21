@@ -1,8 +1,9 @@
-package dirtyBits.learningProject.service;
+package com.learningProject.service;
 
-import dirtyBits.learningProject.view.UserRegisterView;
-import dirtyBits.learningProject.view.UserView;
-import dirtyBits.learningProject.view.UserViewList;
+import com.learningProject.view.UserRegisterView;
+import com.learningProject.view.UserView;
+import com.learningProject.view.UserViewList;
+
 import javassist.NotFoundException;
 
 public interface UserService {

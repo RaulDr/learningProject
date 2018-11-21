@@ -1,13 +1,14 @@
-package dirtyBits.learningProject.service;
+package com.learningProject.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dirtyBits.learningProject.model.User;
-import dirtyBits.learningProject.repository.UserRepository;
-import dirtyBits.learningProject.view.UserRegisterView;
-import dirtyBits.learningProject.view.UserView;
-import dirtyBits.learningProject.view.UserViewList;
+import com.learningProject.model.User;
+import com.learningProject.repository.UserRepository;
+import com.learningProject.view.UserRegisterView;
+import com.learningProject.view.UserView;
+import com.learningProject.view.UserViewList;
+
 import javassist.NotFoundException;
 
 public class UserServiceImpl implements UserService {

@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.view;
+package com.learningProject.view;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

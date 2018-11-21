@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.view;
+package com.learningProject.view;
 
 public class UserView {
 

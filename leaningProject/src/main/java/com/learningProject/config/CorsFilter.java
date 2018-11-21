@@ -1,4 +1,4 @@
-package dirtyBits.learningProject.config;
+package com.learningProject.config;
 
 
 import org.springframework.stereotype.Component;
