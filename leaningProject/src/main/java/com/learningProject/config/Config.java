@@ -12,7 +12,7 @@ import com.learningProject.service.UserService;
 import com.learningProject.service.UserServiceImpl;
 
 @Configuration
-@Import({JpaConfig.class})
+@Import({JpaConfig.class, SecurityConfig.class})
 public class Config {
 	
 	@Autowired

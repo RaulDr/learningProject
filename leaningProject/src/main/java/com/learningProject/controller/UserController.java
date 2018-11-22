@@ -28,12 +28,6 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@GetMapping(value = "/getDummy")
-	public String getDummy() {
-		System.out.println("fuckkkkkkkkkkk!");
-		return "dummy";
-	}
-
 	@PostMapping(value = "/register/user", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> registerUser(@RequestBody UserRegisterView userRegisterView) {
 		userService.register(userRegisterView);
@@ -61,7 +55,7 @@ public class UserController {
 				HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "user/{id}")
+	@DeleteMapping(value = "/user/{id}")
 	public ResponseEntity<?> deleteUserById(@PathVariable long id){
 		userService.deleteUserById(id);
 		return new ResponseEntity<SimpleSuccesResponseView>(
