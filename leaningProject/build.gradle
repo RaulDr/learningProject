@@ -38,6 +38,15 @@ dependencies {
 	
 	compileOnly('org.projectlombok:lombok')
 	
+	//graphQL
+	
+	compile 'io.leangen.graphql:spqr:0.9.6'
+	//compile group: 'com.graphql-java', name: 'graphql-java', version: '2018-11-23T06-31-20-93e0f57'
+	//compile group: 'com.graphql-java', name: 'graphql-java-tools', version: '5.2.4'
+	//compile group: 'com.graphql-java', name: 'graphql-java-servlet', version: '6.1.3'
+	
+	//provided group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+	
 		//rebuild project dependency
     compile("org.springframework.boot:spring-boot-devtools")
 }

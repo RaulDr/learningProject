@@ -1,8 +1,12 @@
 package com.learningProject.view;
 
+import io.leangen.graphql.annotations.GraphQLQuery;
+
 public class UserView {
 
+	@GraphQLQuery(name = "id" , description = "User's id!")
 	private final Long id;
+	@GraphQLQuery(name = "username" , description = "User's username!")
 	private final String username;
 	
 	public UserView(Long id, String username) {

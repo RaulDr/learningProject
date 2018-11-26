@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.learningProject.controller.GraphQLController;
 import com.learningProject.controller.RestExceptionHandler;
 import com.learningProject.controller.UserController;
 import com.learningProject.repository.UserRepository;
@@ -26,6 +27,11 @@ public class Config {
 	@Bean
 	public UserController userController() {
 		return new UserController(userService());
+	}
+	
+	@Bean
+	public GraphQLController graphQLController() {
+		return new GraphQLController(userService());
 	}
 	
 	@Bean

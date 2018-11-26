@@ -9,6 +9,8 @@ import com.learningProject.view.UserRegisterView;
 import com.learningProject.view.UserView;
 import com.learningProject.view.UserViewList;
 
+import io.leangen.graphql.annotations.GraphQLMutation;
+import io.leangen.graphql.annotations.GraphQLQuery;
 import javassist.NotFoundException;
 
 public class UserServiceImpl implements UserService {
@@ -20,6 +22,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@GraphQLMutation(name = "registerUser")
 	public void register(UserRegisterView userRegisterView) {
 		userRepository.save(convertUserRegisterViewTo(userRegisterView));
 	}
@@ -28,20 +31,29 @@ public class UserServiceImpl implements UserService {
 	public UserViewList getAll() {
 		return convertUsersTo(userRepository.findAll());
 	}
+	
+	@Override
+	@GraphQLQuery(name = "users")
+	public List<UserView> getAllForGraphQL() {
+		return convertUsersTo(userRepository.findAll()).getUsers();
+	}
 
 	@Override
+	@GraphQLQuery(name = "user")
 	public UserView getUserById(long id) throws NotFoundException {
 		return userRepository.findById(id).map(this::convertUserTo)
 				.orElseThrow(() -> new NotFoundException(String.format("User with id: %s not found!", id)));
 	}
 
 	@Override
+	@GraphQLMutation(name = "updateUser")
 	public void updateUser(long id, UserRegisterView userRegisterView) throws NotFoundException {
 		userRepository.findById(id).map(u -> userRepository.save(updateUser(u, userRegisterView)))
 				.orElseThrow(() -> new NotFoundException(String.format("Pimp with id: %s not found!", id)));
 	}
 
 	@Override
+	@GraphQLMutation(name = "deleteUser")
 	public void deleteUserById(long id) {
 		userRepository.deleteById(id);
 	}

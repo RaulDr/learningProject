@@ -1,5 +1,7 @@
 package com.learningProject.service;
 
+import java.util.List;
+
 import com.learningProject.view.UserRegisterView;
 import com.learningProject.view.UserView;
 import com.learningProject.view.UserViewList;
@@ -17,4 +19,6 @@ public interface UserService {
 	void updateUser(long id, UserRegisterView userRegisterView) throws NotFoundException;
 	
 	void deleteUserById(long id);
+
+	List<UserView> getAllForGraphQL();
 }
