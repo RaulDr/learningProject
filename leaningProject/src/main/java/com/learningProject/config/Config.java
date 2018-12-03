@@ -10,6 +10,7 @@ import com.learningProject.controller.UserController;
 import com.learningProject.repository.UserRepository;
 import com.learningProject.service.UserService;
 import com.learningProject.service.UserServiceImpl;
+import com.learningProject.service.graphql.Mutation;
 import com.learningProject.service.graphql.Query;
 
 @Configuration
@@ -42,5 +43,10 @@ public class Config {
 	@Bean
 	public Query query() {
 		return new Query(userRepository);
+	}
+	
+	@Bean
+	public Mutation mutation() {
+		return new Mutation(userRepository);
 	}
 }

@@ -1,6 +1,7 @@
 package com.learningProject.service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import com.learningProject.model.User;
@@ -10,6 +11,7 @@ import com.learningProject.view.UserView;
 import com.learningProject.view.UserViewList;
 
 import javassist.NotFoundException;
+import net.bytebuddy.utility.RandomString;
 
 public class UserServiceImpl implements UserService {
 
@@ -57,7 +59,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	private User convertUserRegisterViewTo(UserRegisterView userRegisterView) {
-		return new User(userRegisterView.getUsername(), userRegisterView.getPassword());
+		return new User(userRegisterView.getUsername(), RandomString.make());
 	}
 
 	private UserViewList convertUsersTo(List<User> users) {

@@ -1,13 +1,12 @@
 type User {
 	id: ID!
 	username: String!
-	password: String!
 }
 
 type Query {
     allUsers: [User!]!
 }
 
-schema {
-	query: Query
- }
+type Mutation {
+	saveUser(username: String!): User!
+}
