@@ -3,6 +3,9 @@ package com.learningProject.view;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.leangen.graphql.annotations.GraphQLArgument;
+import io.leangen.graphql.annotations.GraphQLQuery;
+
 public class UserRegisterView {
 
 	@JsonProperty("username")
@@ -12,15 +15,17 @@ public class UserRegisterView {
 	private final String password;
 
 	@JsonCreator
-	public UserRegisterView(@JsonProperty("username") String username, @JsonProperty("password") String password) {
+	public UserRegisterView(@JsonProperty("username") @GraphQLArgument(name = "username") String username, @JsonProperty("password") @GraphQLArgument(name = "password") String password) {
 		this.username = username;
 		this.password = password;
 	}
 
+	@GraphQLQuery(name = "username")
 	public String getUsername() {
 		return username;
 	}
-
+	
+	@GraphQLQuery(name = "password")
 	public String getPassword() {
 		return password;
 	}

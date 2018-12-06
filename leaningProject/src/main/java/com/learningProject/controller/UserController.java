@@ -23,7 +23,7 @@ import javassist.NotFoundException;
 public class UserController {
 
 	private final UserService userService;
-
+	
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
@@ -61,5 +61,4 @@ public class UserController {
 		return new ResponseEntity<SimpleSuccesResponseView>(
 				new SimpleSuccesResponseView(String.format("User with id %s was deleted!", id)), HttpStatus.GONE);
 	}
-	
 }

@@ -55,11 +55,6 @@ public class UserControllerTest {
 	}
 
 	@Test
-	public void testGetDummy() throws Exception {
-		mockMvc.perform(get("/getDummy")).andDo(print()).andExpect(content().string(containsString("dummy")));
-	}
-
-	@Test
 	public void testRegisterPimp() throws Exception {
 		doNothing().when(userService).register(new UserRegisterView("userTest", "password"));
 		mockMvc.perform(post("/register/user").accept(MediaType.APPLICATION_JSON_UTF8_VALUE)

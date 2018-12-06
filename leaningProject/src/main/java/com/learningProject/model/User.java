@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.leangen.graphql.annotations.GraphQLQuery;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -14,15 +16,15 @@ public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-//	@GraphQLQuery(name = "id" , description = "User's id!")
+//	@GraphQLQuery(name = "id")
     private Long id;
-	
+
 	@Column
-//	@GraphQLQuery(name = " username", description = " User's username!")
+//	@GraphQLQuery(name = "username")
 	private String username;
 	
 	@Column
-//	@GraphQLQuery(name = " password", description = " User's password!")
+//	@GraphQLQuery(name = "password")
 	private String password;
 
 	public User() {}

@@ -2,14 +2,18 @@ package com.learningProject.view;
 
 import java.util.List;
 
+import io.leangen.graphql.annotations.GraphQLQuery;
+
 public class UserViewList {
 
+	
 	private final List<UserView> users;
 	
 	public UserViewList(List<UserView> users) {
 		this.users = users;
 	}
 
+	@GraphQLQuery(name = "usersViewList")
 	public List<UserView> getUsers() {
 		return users;
 	}
