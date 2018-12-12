@@ -2,6 +2,7 @@ package com.learningProject.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,18 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learningProject.service.UserService;
 
+import graphql.ErrorType;
+import graphql.ExceptionWhileDataFetching;
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
 import graphql.GraphQL;
+import graphql.GraphQLError;
+import graphql.language.SourceLocation;
 import graphql.schema.GraphQLSchema;
 import io.leangen.graphql.GraphQLSchemaGenerator;
 import io.leangen.graphql.metadata.strategy.query.AnnotatedResolverBuilder;
 import io.leangen.graphql.metadata.strategy.value.jackson.JacksonValueMapperFactory;
+import javassist.NotFoundException;
 
 @RestController
 public class GraphQLController {
@@ -39,14 +46,19 @@ public class GraphQLController {
     }
 
     @PostMapping(value = "/graphql", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Map<String, Object> graphql(@RequestBody Map<String, String> request, HttpServletRequest raw) {
+    @ResponseBody
+    public /*Map<String, Object>*/ Object graphql(@RequestBody Map<String, String> request) {
         ExecutionResult executionResult = graphQL.execute(ExecutionInput.newExecutionInput()
                 .query(request.get("query"))
                 .operationName(request.get("operationName"))
                 .variables(getVariables(request.get("variables")))
-                .context(raw)
+//                .context(raw)
                 .build());
-        return executionResult.toSpecification();
+//        if (!executionResult.getErrors().isEmpty()) {
+//            return sanitize(executionResult.getErrors().get(0));
+//        }
+        return executionResult;
+//        return executionResult.toSpecification();
     }
     
     private Map<String, Object> getVariables(final Object request) {
@@ -61,5 +73,28 @@ public class GraphQLController {
             }
         }
         return null;
+    }
+    
+    private GraphQLError sanitize(GraphQLError error) {
+        if (error instanceof ExceptionWhileDataFetching) {
+            return new GraphQLError() {
+                @Override
+                public String getMessage() {
+                    Throwable cause = ((ExceptionWhileDataFetching) error).getException().getCause();
+                    return cause instanceof NotFoundException ? ((NotFoundException) cause).getMessage() : cause.getMessage();
+                }
+
+                @Override
+                public List<SourceLocation> getLocations() {
+                    return error.getLocations();
+                }
+
+                @Override
+                public ErrorType getErrorType() {
+                    return error.getErrorType();
+                }
+            };
+        }
+        return error;
     }
 }

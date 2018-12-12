@@ -16,7 +16,7 @@ public interface UserService {
 	
 	boolean updateUser(long id, UserRegisterView userRegisterView) throws NotFoundException;
 	
-	void deleteUserById(long id);
+	boolean deleteUserById(long id);
 
 	UserViewList getUserByUsername(String username);
 }

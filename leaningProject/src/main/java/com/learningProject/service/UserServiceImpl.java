@@ -3,7 +3,6 @@ package com.learningProject.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.remoting.soap.SoapFaultException;
 import org.springframework.stereotype.Service;
 
 import com.learningProject.model.User;
@@ -66,9 +65,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-//	@GraphQLMutation(name = "deleteUser")
-	public void deleteUserById(long id) {
+	@GraphQLMutation(name = "deleteUser")
+	public boolean deleteUserById(@GraphQLArgument(name = "id")long id) {
 		userRepository.deleteById(id);
+		return true;
 	}
 	
 	private User convertUserRegisterViewTo(UserRegisterView userRegisterView) {
